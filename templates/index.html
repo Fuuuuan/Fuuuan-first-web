@@ -1,0 +1,31 @@
+<!DOCTYPE html> <!--文件格式-->
+<html lang="en"> <!--HTML的根标签_表示网页的语言是英语-->
+    <head> <!--网页头部信息-->
+        <meta charset="UTF-8"> <!--使用UTF-8编码字符_支持中文-->
+        <title>我的摄影作品</title> <!--网页的呈现名-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}"> <!--link引入外部链接_这是一个样式表_使用url_for函数来生成静态文件的URL_这是一个CSS样式表-->
+        <!--在 Flask 中，所有的静态文件（图片、CSS、JS）都要通过 url_for('static', filename='...') 来引用，保证路径正确-->
+    </head>
+    <body> <!--网页页面-->
+        <div class="home">
+            <h1>HEDGE & KOALA</h1> <!--标题_h1这个数字越小字体越大-->
+            <img src="{{ url_for('static', filename='images/' + cover) }}" class="cover" alt="封面图"> <!--封面图。在app.py里已经把cover提取出来，并传递到html里了👍-->
+            <!--这是一个函数_帮助找到正确路径和对应文件_=static/images/cover.jpg-->
+        </div> 
+        <div class="gallery">
+            {% for img in works %}
+                <img src="{{ url_for('static', filename='images/' + img) }}" alt="{{img}}">
+            {% endfor %}
+        </div>
+        <!--div=division，代入到网页视觉化理解，相当于分出来一个区块，这个区块的“类”是gallery，当然其他的名字也行，主要是给这个块命名了，便于之后的管理（比如CSS里要对类内统一做改变）-->
+        <!-- 悬浮个人简介按钮及简介便签 -->
+        <div class="floating-btn-container"> <!--创建一个模块，把模块放好，同时引入self，把self这个小块用css设置好样式-->
+          <a href="{{ url_for('self') }}" class="floating-btn" title="个人简介">
+           <img src="{{ url_for('static', filename='images/stardrew.png') }}" class="emoji">
+          </a> <!--虽然我们引入的是链接，但是我们可以用css把他变得像一个按钮的样子。通过归类得到-->
+          <div class="floating-note"> <!--悬浮的个人简介便签-->
+            <strong>你好</strong><br> <!--粗体显示+br换行-->
+            <p>欢迎来到我的世界</p> <!--p是段落的意思,在html里，用p会加上间距这些格式化的东西，也能不用就是了-->
+          </div>
+        </div>
+    </body>

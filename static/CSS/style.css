@@ -1,0 +1,144 @@
+
+body 
+{
+    font-family: sans-serif;
+    text-align: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1 
+{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 7.5em;
+}
+
+/* 悬浮按钮及简介便签样式 */
+.floating-btn-container {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  z-index: 1000;
+}
+
+.floating-btn {
+  background: #ffffff;
+  color: #272525;
+  border-radius: 20%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.0em;
+  text-decoration: none;
+  box-shadow: 4px 4px 20px rgba(0,0,0,0.2);
+  transition: 1s;
+}
+
+.floating-btn:hover {
+  background: #ffffff;
+  transform: scale(1.3)
+}
+
+.floating-note {
+  display: none;
+  z-index: 500;
+  position: absolute;
+  right: 70px;
+  bottom: 0;
+  background: #fff;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 16px 24px;
+  min-width: 180px;
+  font-size: 1em;
+  white-space: pre-line;
+}
+
+.floating-btn-container:hover .floating-note {
+  display: block;
+}
+
+
+img.cover {
+    max-width: 50%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.home a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.5em;
+    margin-top: 20px;
+    display: inline-block;
+}
+.home { /*不能写成body.home，因为后者的含义是以home为class的body，但是我们在html里没有创建这样一个class，只在div里创建了一个区块的class*/
+    background-color: #9f0e0e;
+    color: #ffffff;
+    height: 200vh; /* 设置高度为视口高度的100% */
+    width: 100%;
+    
+}
+
+.gallery{
+    background-color: #ffffff;
+    color: #333;
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+}
+.gallery img { /*我们在index.html文件里已经把img都归到gallery的类下了*/
+    /*不能写成img.gallery,后者是指称为gallery的img*/
+    max-width: 300px;
+    margin: 50px;
+   /*border-radius: 10px;*/
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+body.self 
+{
+    background-color: #ffffff;
+    color: #ffffff;
+    font-size: 2em;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.5;
+    background-image: url("../images/stardrew\ valley.png");
+    max-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+img.profile {
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0px 0px 80px rgba(255, 253, 253, 1);
+    margin-bottom: 20px;
+    margin-left: 0px;
+    margin-top:100px;
+    
+}
+
+img.emoji {
+    width: 60px;
+    height: 60px;   
+    vertical-align: middle;
+}

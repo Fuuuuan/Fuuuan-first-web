@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>个人简介</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+  </head>
+  <body class="self">
+    <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="个人照片" class="profile">
+    <p> 老乡～<br> 欢迎来到我的世界！</p>
+    <script>
+      document.body.onclick = function() {
+        window.location.href = "{{ url_for('index') }}";
+      } /* java script, 点击页面跳转到index页 */
+    </script>
+  </body>
+</html>
